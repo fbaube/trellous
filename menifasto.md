@@ -20,7 +20,7 @@ has gained world domination quite like simple trees have.
 
 Top-down. Directed. Single-rooted. 
 
-__**Tags**__ might seem like part of a cure. Perhaps you're thinking
+***Tags*** might seem like part of a cure. Perhaps you're thinking
 of a vast flattened pool of content, with faceted tags for
 narrowing searches down. But that doesn't really work either.
 Not well, anyways.
