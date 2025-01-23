@@ -4,5 +4,6 @@ Trees are *everywhere* in I.T. and in Knowledge Representation. There's no avoid
 
 But RelFS (and its author) have some interesting ideas. And there is also the idea of muiltitrees to help organise complex trees. So, we have
 
-  Tree + RelFS + Multitree ~= Trellis _(which is what a multitree can look like)_
+So let's say: `Tree + RelFS + Multitree ~= Trellis`
+_(which is what a multitree can look like)_
 
