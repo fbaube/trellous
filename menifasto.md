@@ -1,8 +1,12 @@
 # The Name
 
-Trees are *everywhere* in I.T. and in Knowledge Representation. There's no avoiding them. And when your hammer is an RDMS, trees are difficult to nail.
+Trees are *everywhere* in I.T. and in Knowledge Representation.
+There's no avoiding them. And when your main hammer is an RDMS,
+trees are difficult to nail.
 
-But RelFS (and its author) have some interesting ideas. And there is also the idea of muiltitrees to help organise complex trees. So, we have
+But RelFS (and its author) have some interesting ideas. And there
+is also the idea of muiltitrees to help organise complex trees.
+So, we have
 
 So let's say: `Tree + RelFS + Multitree ~= Trellis`
 
@@ -11,17 +15,35 @@ So let's say: `Tree + RelFS + Multitree ~= Trellis`
 # IRL
 
 Trees form the basis of filesystems, because nothing better
-has gained world domination quite like ismple trees have.
-(Hard linke and soft links are just window dressing.)
+has gained world domination quite like simple trees have.
+(Hard links and soft links are just window dressing.)
 
-Tags might seem like part of a cure. Perhaps you're thinking of
-a vast flattened pool of content, with faceted tag search for
-narrowing searches down. But this doesn't really work either.
+Tags might seem like part of a cure. Perhaps you're thinking
+of a vast flattened pool of content, with faceted tags for
+narrowing searches down. But that doesn't really work either.
 Not well, anyways.
 
-Tags themselves need to be hierarchical, so that's a complicating factor.
+Furthermore tags themselves need to be hierarchical, so that's
+a complicating factor.							
 
-And when you're talking content reuse (for example), it's not just
-child nodes that are important, it's multiple parent nodes too.
-There's **Contents** and then there's **Contexts**.
+And when you're talking content reuse (for example), it's not
+just munltiple child nodes that are important, it's multiple
+parent nodes too. There's **Contents** and but OTOH there's
+**Contexts** too.
+
+So, any particular content node can have
+- multiple children
+- multiple parents
+- multiple incoming facet links
+- and don't forget arbitrarily large amounts of metadata
+- and multiple versiona and multiple (re)presentation formats 
+
+This makes it much more interesting than a simple top-down tree.
+
+# Foods for Thought
+
+- [RelFS summary at GH](https://github.com/nayuki/Relational-File-System)
+- [RelFS rationale](https://www.nayuki.io/page/designing-better-file-organization-around-tags-not-hierarchies) [local]()
+- [File Systems: The Original Hypermedia)(https://jon.work/og/#1) [local]()
+- [Multitrees: Enriching and Reusing Hierarchical Structure](https://adrenaline.ucsd.edu/kirsh/Articles/In_Process/MultiTrees.pdf)
 
