@@ -48,8 +48,39 @@ This makes it all much more interesting than a simple top-down tree.
 # Foods for Thought
 
 - [RelFS summary at GH](https://github.com/nayuki/Relational-File-System)
-- [RelFS rationale](https://www.nayuki.io/page/designing-better-file-organization-around-tags-not-hierarchies) 
+- [RelFS rationale](https://www.nayuki.io/page/designing-better-file-organization-around-tags-not-hierarchies)
+- [RelFS commentary](https://karl-voit.at/2020/05/19/RelFS/)
 - [File Systems: The Original Hypermedia](https://jon.work/og/#1) 
 - [Multitrees: Enriching and Reusing Hierarchical Structure](https://adrenaline.ucsd.edu/kirsh/Articles/In_Process/MultiTrees.pdf) 
-- _(local copies are in subdirectory_ `local/`)
+- _(local copies are in subdirectory `local/`)_
 
+# UI
+
+"Normal" trees can be shown easily, like so:
+```
+~/trellous >> tree
+.
+├── local
+│   ├── Designing better file orgzn around tags not hierarchies.xhtml
+│   ├── File Systems The Original Hypermedia.html
+│   ├── MultiTrees.pdf
+│   └── RelFS A Hypothetical Tag-Based File System.html
+├── menifasto.md
+```
+
+If tags are done right, then foldirectory structure
+becomes just a default mode for navigation, and a
+substructure for the rest of the system to build on. 
+
+When contexts are wanted in addition to contents,
+and when tags are wanted, a 2-by-2 grid might work,
+whetehr the item is a foldirectory or a document:
+
+```
+tags     contexts
+     item
+multi    contents
+```
+
+Multi could be a previoew, or metadata, or a review
+panel, or whatever, changing dynamically. 

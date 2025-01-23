@@ -1,0 +1,613 @@
+  <!DOCTYPE html>
+  <html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  <meta charset="UTF-8">
+
+  <meta name="author" content="Karl Voit" />
+  <meta name="generator" content="lazyblorg" />
+  <meta name="description" content="RelFS: A Hypothetical Tag-Based File System by Nayuki" />
+  <meta name="orgmode-id" content="2020-05-18-RelFS" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@n0v0id" />
+  <meta name="twitter:creator" content="@n0v0id" />
+  <meta name="twitter:title" content="RelFS: A Hypothetical Tag-Based File System by Nayuki" />
+  <meta name="twitter:description" content="RelFS: A Hypothetical Tag-Based File System by Nayuki" />
+  <meta name="twitter:image" content="http://Karl-Voit.at/images/public-voit_T_logo_200x200.png" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="RelFS: A Hypothetical Tag-Based File System by Nayuki" />
+  <meta property="og:description" content="RelFS: A Hypothetical Tag-Based File System by Nayuki" />
+  <meta property="og:image" content="http://Karl-Voit.at/images/public-voit_T_logo_200x200.png" />
+  <meta property="og:site_name" content="public voit - Web-page of Karl Voit">
+  <meta property="article:published_time" content="2020-05-19T19:44+01:00" />
+  <meta property="article:author" content="Karl Voit" />
+
+  <link rel="stylesheet" title="public voit Standard CSS Style"
+        href="//Karl-Voit.at/public_voit.css" type="text/css" media="screen"  />
+
+  <link rel="alternate" type="application/atom+xml"
+        title="public voit (links only)" href="//Karl-Voit.at/feeds/lazyblorg-all.atom_1.0.links-only.xml" />
+  <link rel="alternate" type="application/atom+xml"
+        title="public voit (article teasers)" href="//Karl-Voit.at/feeds/lazyblorg-all.atom_1.0.links-and-teaser.xml" />
+  <link rel="alternate" type="application/atom+xml"
+        title="public voit (full content)" href="//Karl-Voit.at/feeds/lazyblorg-all.atom_1.0.links-and-content.xml" />
+
+  <!-- WARNING: This page is written in HTML5 and might not be displayed correctly in old browsers. -->
+
+      <!-- link rel="stylesheet" type="text/css" href="../../../../style.css" / -->
+      <title>RelFS: A Hypothetical Tag-Based File System by Nayuki</title>
+
+  </head>  <body>
+
+    <div class="common-orgsource"><a href="source.org.txt">&#960;</a></div>
+
+
+	<header>
+
+	  <nav class="temporal-article-header-nav">
+	    <span class="breadcrumbs">
+	      <a href="../../../../"><img src="//Karl-Voit.at/images/public-voit_logo.svg" alt="public voit logo" width="350" style="vertical-align:middle;"></a><span style="padding-top:1em;">&nbsp;&nbsp;&nbsp;&nbsp;&raquo;
+	      <a href="../../../">2020</a>&nbsp;&ndash;&nbsp;<a href="../../">05</a>&nbsp;&ndash;&nbsp;<a href="../">19</a></span>
+	    </span>
+	  </nav>
+	  <aside class="common-tags">
+	    <ul>
+                <li><a class="usertag" href="//Karl-Voit.at/tags/pim/">pim</a></li>
+                <li><a class="usertag" href="//Karl-Voit.at/tags/research/">research</a></li>
+                <li><a class="usertag" href="//Karl-Voit.at/tags/tagstore/">tagstore</a></li>
+                <li><a class="autotag" href="//Karl-Voit.at/2016/11/16/empty-language-autotag-page">language:english</a></li>
+	    </ul>
+	  </aside>
+
+	  <h1 class="common-article-header-title">RelFS: A Hypothetical Tag-Based File System by Nayuki</h1>
+
+  	  <aside class="reading-time-section">
+          Reading time about 14 minutes
+	  </aside>
+
+	</header>
+
+  
+  <a id="show-sidebar-text" href="#show-sidebar">Show Sidebar</a>
+  <div class="sidebar toggle-sidebar">
+     <div class="search">
+       <iframe id="search-big" src="//duckduckgo.com/search.html?width=140&site=Karl-Voit.at&prefill=Search%20blog"></iframe>
+       <iframe id="search-narrow" src="//duckduckgo.com/search.html?width=70&k1=-1&k2=s&site=Karl-Voit.at&prefill=Search"></iframe>
+       <br/>
+     </div>
+     <ul>
+     <li><a href="//Karl-Voit.at">Recent articles</a></li>
+     <li><a href="//Karl-Voit.at/about">About this blog</a></li>
+     <li><a href="//Karl-Voit.at/how-to-use-this-blog">How to use this blog efficiently</a></li>
+     <li><img src="//Karl-Voit.at/images/feed-icon-14x14.png" alt="RSS icon" />&nbsp;Subscribe to one of my feeds:
+         <ul>
+         <li><span style="font-size:small"><a href="//Karl-Voit.at/feeds/lazyblorg-all.atom_1.0.links-only.xml">links only feed</a> (most reliable)</span></li>
+         <li><span style="font-size:small"><a href="//Karl-Voit.at/feeds/lazyblorg-all.atom_1.0.links-and-teaser.xml">article teaser feed</a></span></li>
+         <li><span style="font-size:small"><a href="//Karl-Voit.at/feeds/lazyblorg-all.atom_1.0.links-and-content.xml">full content feed</a></span></li>
+         </ul></li>
+     <li><span style="font-size:small"><a href="https://en.wiktionary.org/wiki/TBD">TBD</a>: Per Tag Feeds</span></li>
+     <li><span style="font-size:small"><a href="https://en.wiktionary.org/wiki/TBD">TBD</a>: Archive</span></li>
+     <li>Top <a href="//Karl-Voit.at/tags/">tags</a>:
+         <ul class="top-tags-list">
+              
+              <li><a class="usertag" href="//Karl-Voit.at/tags/software">software</a> (263)</li>
+              <li><a class="usertag" href="//Karl-Voit.at/tags/pim">pim</a> (168)</li>
+              <li><a class="usertag" href="//Karl-Voit.at/tags/hardware">hardware</a> (121)</li>
+              <li><a class="usertag" href="//Karl-Voit.at/tags/austria">austria</a> (82)</li>
+              <li><a class="usertag" href="//Karl-Voit.at/tags/graz">graz</a> (75)</li>
+              <li><a class="usertag" href="//Karl-Voit.at/tags/emacs">emacs</a> (75)</li>
+              <li><a class="usertag" href="//Karl-Voit.at/tags/security">security</a> (67)</li>
+              <li><a class="usertag" href="//Karl-Voit.at/tags/cloud">cloud</a> (63)</li>
+              <li><a class="usertag" href="//Karl-Voit.at/tags/privacy">privacy</a> (60)</li>
+              <li><a class="usertag" href="//Karl-Voit.at/tags/diy">diy</a> (60)</li>
+         </ul></li>
+     </ul>
+  </div>
+
+
+  <article class="common-article">
+
+<p>
+
+<a href="https://www.reddit.com/r/datacurator/comments/gknrr4/designing_better_file_organization_around_tags/">A reddit thread</a> mentioned <a href="https://www.nayuki.io/page/designing-better-file-organization-around-tags-not-hierarchies">the article on "Designing better file organization around tags, not hierarchies"</a> by <a href="https://www.nayuki.io/page/about">Nayuki</a> which was last updated in early 2017.
+
+</p>
+
+<p>
+
+Since I have some scientific and hands-on background on the topic of file management by tags, I would like to comment on this article. Unfortunately, Nayuki does not provide any comment feature on his web page. Hence, I'm publishing this comment on my blog.
+
+</p>
+
+<p>
+
+The article by Nayuki is written similar to a classic white-paper for a research conference or a scientific journal. It consists of following sections:
+
+</p>
+<ul>
+<li>Introduction</li>
+<li>Hierarchical file systems are useful</li>
+<li>Hierarchical organization is clumsy</li>
+<li>Alternative systems as inspirational examples</li>
+<li>Designing a tag-based file system</li>
+<li>Open questions</li>
+<li>Miscellaneous notes</li>
+</ul>
+
+<p>
+
+I "printed" the web page into a PDF file which resulted in 29 pages of A4 with my page settings. Therefore, it's a lengthy paper that requires some time to read carefully. Nevertheless, it offers good content for readers who are into file management in general and tag-based approaches in particular. I really do recommend it. If you continue reading my comments now, you should have read the article beforehand in order to get the most out of my comments as I won't repeat most content from the article I'm referring to.
+
+</p>
+
+	  <header><h2 class="section-title">The Status of the Project</h2></header>
+
+<p>
+
+First of all, I've skimmed <a href="https://www.nayuki.io/recent-pages/">through the list of blog articles by Nayuki</a> starting with 2017 and was not able to find anything related. Looking at <a href="https://github.com/nayuki?tab=repositories">his list of GitHub repositories</a>, I found <a href="https://github.com/nayuki/Relational-File-System">the Relational File System (RelFS)</a> that currently holds <a href="https://github.com/nayuki/Relational-File-System/commits/develop">three commits from December 2017</a>. The one document in this repository summarizes the main parts of the RelFS concept.
+
+</p>
+
+<p>
+
+<a href="https://github.com/nayuki/Relational-File-System/issues/1">The only GitHub issue</a> is a question related to the status of the project which was not answered by Nayuki. However, he responded with a thumbs-up to the answer of another person that basically wrote "this repo is to track changes/updates to that design". According to these observations, RelFS is a one-man concept that did not get updated for a couple of years and did not attract any peers yet. At least, we now have a name for this hypothetical tag-based file system: RelFS. :-)
+
+</p>
+
+	  <header><h2 class="section-title">Context</h2></header>
+
+<p>
+
+Nayuki is trying to come up with some fresh ideas on the issue of how to organize files. He's starting from scratch, not caring about implementation issues or compatibility to existing systems - at least for the most parts.
+
+</p>
+
+<p>
+
+What I found interesting was his notion that he feels limited by the fact that every file within nowadays file systems need to have a unique file name within one single directory. (Read section "Folder vs. Directory" <a href="//Karl-Voit.at/folder-hierarchy">of this article</a> if you want to learn about the difference between "folders" and "directories" from my perspective.) Interestingly, I myself was never worried about that specific limitation of file systems. Maybe I accepted this as part of my way of judging things as a tech-savvy person, having blinkers. Maybe I was never irritated by it because I tend to use long, descriptive file names according to <a href="//Karl-Voit.at/managing-digital-photographs">my file name convention</a>.
+
+</p>
+
+<p>
+
+Nayuki does not want to name his files. He sympathizes with computer-generated file names and concepts where names are defined by and directly derived from the content similar to the inner workings of <a href="https://en.wikipedia.org/wiki/Git">Git</a>, <a href="https://restic.net/">restic</a>, <a href="https://en.wikipedia.org/wiki/InterPlanetary_File_System">IPFS</a> or others.
+
+</p>
+
+<p>
+
+Escaping <a href="//Karl-Voit.at/2018/08/25/deskop-metaphor">the limitations of single-classification</a>, he clearly goes for multi-classification using labels, tags or meta-data in general, getting rid of not only file names but also directory paths.
+
+</p>
+
+<p>
+
+For most parts of the article, <b>I do have the very same or similar opinion compared to Nayuki</b>. However, I do want to express some of my concerns with his approach in the following sections. The order of my comments does not reflect the order of topics mentioned in the article.
+
+</p>
+
+	  <header><h2 class="section-title">Immutable Files</h2></header>
+
+<p>
+
+The highest impact on the rest of the concept results from his definition of a file:
+
+</p>
+
+<blockquote>Define a "file" to be an immutable, finite sequence of bytes.</blockquote>
+
+<p>
+
+Unfortunately, I do have many issues with this self-limitation. Although most of the files I curate on my personal storage devices are immutable (not being modified from the time it entered my system until now and probably forever), the files that do get changed over time by adding, removing or changing content tend to have a higher value to me.
+
+</p>
+
+<p>
+
+Later-on, Nayuki addresses the issue in the open question section of his article when he refers to mutable files with following words:
+
+</p>
+
+<blockquote>I think the easiest way to deal with this is to exclude it from my scope. My goal is to
+design a system that can organize and access a set of independent, timeless facts. The
+ability to deal with mutable files would only dilute the impact of this system, and
+introduce multitudes of technical issues regarding data modeling, interoperability,
+semantics, etc.<br />
+Thus, probably the best solution is to have a traditional hierarchical file system for
+managing mutable files. Once a user is satisfied, she will choose to import the finished
+files into the immutable tag-oriented data store.</blockquote>
+
+<p>
+
+In other words, even with a brand new concept for this hypothetical RelFS, Nayuki needs a traditional hierarchical file system (HFS) in parallel in order to work on files.
+
+</p>
+
+<p>
+
+At this point, this new concept of RelFS is limited to the archive section of the personal data storage only. Maintaining both systems will not solve the issues that got listed in the motivation part of the article. Quite the contrary: with two systems in place, the user is confronted with a fragmentation issue she did not have before. Where is my file? Was it considered mutable by my past self (HFS) or do I have to use a completely different retrieval workflow to locate it in the archive of the immutable files (RelFS)? I don't see any advantage to the common user here.
+
+</p>
+
+<p>
+
+Furthermore, in a different section, Nayuki mentions that applications needs to have specific parts that deal with storing and retrieving of files. Those parts have to support both, completely different storage patterns as well. This is a very large issue of the practical implementation of such a system. I can not think of any solution where the average user can be convinced of.
+
+</p>
+
+	  <header><h2 class="section-title">Personal versus Collaborative</h2></header>
+
+<p>
+
+With the introduction of the concept of tagging as the one and only retrieval tool for RelFS, Nayuki needs to discuss some aspects of applying tags to files. He specifically mentions <a href="https://en.wikipedia.org/wiki/Imageboard#Danbooru-style_boards">Danbooru-style_boards</a> where retrieval is independent of file names, collaborative tagging is applied and tags themselves can be annotated.
+
+</p>
+
+<p>
+
+It might be a subtle comment I want to give at this point. To me, there is a huge difference between personal and collaborative information management. This is particular true for <a href="https://en.wikipedia.org/wiki/Folksonomy">social tagging (or Folksonomy)</a> in contrast to a personal set of tags.
+
+</p>
+
+<p>
+
+Independent of <a href="//Karl-Voit.at/2022/01/29/How-to-Use-Tags">my personal recommendation of curating a limited set of tags within a controlled vocabulary</a>, there are some fundamental differences between many persons tagging one item and one person applying keywords to the same item. Those aspects should be discussed separately and not mixed together. Unfortunately, this article mixes those concepts multiple times. For example when adding the interesting concepts of shared tag cores:
+
+</p>
+
+<blockquote>One extension of using tag cores is that we can create a public vocabulary of tags with
+universally accepted meanings.</blockquote>
+
+<p>
+
+Whenever something like this is introduced, there are many different questions that arise and needs to be addressed as well. For example, who is responsible for curating tags or tag relationships? How does the process look like when a universally accepted meaning for a keyword needs to be created? I highly doubt that this is possible at all.
+
+</p>
+
+<p>
+
+In addition to those social questions, there are some technical implications as well. Where are those tags stored? How can those tags be synchronized among all people using RelFS? What about pushing changes because of a changed common agreement? This is a really messy topic to discuss.
+
+</p>
+
+<p>
+
+Another aspect when it comes to sharing point of views on tags is when files are transferred from one person to another:
+
+</p>
+
+<blockquote>Selecting metadata<br />
+If you choose to copy a photo from one storage device to another,
+which tags pertaining to this photo will also be copied? This question
+does not have a consistent answer in conventional HFSes (there are
+many conflicting ad hoc semantics among implementations). There
+doesn’t appear to be a universal answer in a tag-based system either.
+There are at least two aspects to the problem. Which types of tags get
+copied – name tags, title tags, timestamp tags, derivation tags? How
+deeply should higher-order tags be copied – tag cores, tag
+implications, notes about tags, etc.?</blockquote>
+
+<p>
+
+This is almost impossible to define for one single file that has multiple tags assigned. When a large set of different files are transferred, this more or less results in an impossible task to accomplish when personal tagging preferences should be taken into account.
+
+</p>
+
+	  <header><h2 class="section-title">Storage Devices and Permissions</h2></header>
+
+<p>
+
+In order to discuss the idea of using storage devices as a tool to separate access permissions, I need to quote this whole sequence:
+
+</p>
+
+<blockquote>Conventional HFSes manage private files by the mechanism of directory
+and file permissions (ownership, read/write, etc.). However this leaks
+information because there is always some point up the hierarchy where
+an unauthorized user knows of the existence of private files. For
+example, it might be the case that the user directory /home/john is
+readable by everyone, and the subdirectory /home/john/private is the
+starting point where only John has read access. I propose to manage
+private files by storage attachment: if you want to see private files,
+you need to be able to be to attach a particular storage device
+(enforced out of band through OS-level permissions or by encryption).
+If you have sensitive financial documents stored on a separate device
+(even if it’s an HDD partition), you can unmount it when you don’t
+need it, so that a rogue program won’t be able to access the sensitive
+data.</blockquote>
+
+<p>
+
+I highly doubt that this is working in practice. Not in our modern multi-threaded world. Without a permission system in place, you don't have any control at all.
+
+</p>
+
+<blockquote>This means that for example, a password manager app can be the only
+one that accesses a privileged storage device containing user
+passwords.</blockquote>
+
+<p>
+
+If you are using storage devices as a supplement for access permissions, you will end up with many different storage devices. At least dozens. On my side, probably even more, when I think of it in detail.
+
+</p>
+
+<p>
+
+Storage devices are equal to physical storage devices, at least according to the article. If I would add logical devices as an additional option to this concept, I still end up with many different storage devices, each having a specific and pre-defined storage size. The overall free space would be fragmented into many parts. As a geek, I do not want to deal with such a situation. Although I still have a couple of unused Gigabytes, I would not be able to use them up properly when those Gigabytes are scattered over many different devices. Any non-geek person would not be able to manage this in an efficient way for sure.
+
+</p>
+
+<blockquote>Your email client software should be designed to list email messages
+from all available storage devices.</blockquote>
+
+<p>
+
+In my opinion, we do have a mismatch on responsibility here. I want this to be handled by the operating system and not by each individual software application. The underlying operating system has to provide consistent access to the storage layer.
+
+</p>
+
+<p>
+
+Even worse, with dozens or hundreds of different storage devices, the UI proposal with "one icon per storage device" in every file open/save dialog does not scale at all. This would end in a big mess for the user.
+
+</p>
+
+<p>
+
+And this does get even worse when you think of the fact that we still need traditional hierarchical file system (HFS) in parallel to the RelFS as mentioned before.
+
+</p>
+
+	  <header><h2 class="section-title">Levels of Detail</h2></header>
+
+<p>
+
+Nayuki clearly has a broad technological background. This is obvious to the reader when Nayuki switches from explaining high-level concepts down to discussing implementation details and vice versa. In my opinion, this is not good for any kind of reader, with or without background in technology. The overall goal was to introduce a concept, ignoring implementation details. At various points, Nayuki is violating this pattern and changes to questions of implementation details.
+
+</p>
+
+<p>
+
+On the one hand side, he writes about tags, immutable files, not relying on file paths and so forth. Then he mentions details of concepts from <a href="https://en.wikipedia.org/wiki/Relational_database#RDBMS">RDBMS</a>, <a href="https://en.wikipedia.org/wiki/InterPlanetary_File_System">IPFS</a>, and implications for typing schemes and their verification.
+
+</p>
+
+<p>
+
+I also got a bit irritated on the granularity of his concept. Most of the time, he writes about files just as we are using them these days: "a file and nothing but a file". He even mentions file extensions like PDF that should be added to files just like any other tag as well. In one section, he goes further. He thinks that RelFS files should be more fine-grained than this. Like each message within a conversation is a file as well as single temperature measurements of a series of measurements, each should be a file of its own.
+
+</p>
+
+<p>
+
+As far as I sympathize with <a href="//Karl-Voit.at/2017/02/10/evolution-of-systems">Information-Centric Systems</a>, the reader most likely can not follow here. What is supposed to be file-level? The whole article I'm writing just now? Each section of the article? Or even each paragraph or each sentence? There might be a fruitful discussion hidden in this notion. When it comes to real-life situations where information can only be retrieved by assigned tags, I doubt that an excessively fine granularity turns out to be of high value to the average user.
+
+</p>
+
+	  <header><h2 class="section-title">Semantics</h2></header>
+
+<p>
+
+Although Nayuki obviously has many touch-points with it, he never mentions <a href="https://en.wikipedia.org/wiki/Semantic_triple">the concept of semantic triples or RDF</a>. He clearly wants to put things into relation. For example when he is mentioning relation between tags. And among one single tag, he wants to express different meanings for the very same word and so forth.
+
+</p>
+
+<p>
+
+Well, this is the classic domain of semantic triples, where a subject is assigned to an object with a specific predicate. This is the only viable way of defining relations in a way that a structured retrieval process can be supported. This way, a user is able to search for "flower" and the system is able to "understand" that "tulip" is an instance of the class "flower", providing them in the set of search results although they weren't tagged with "flower" in particular.
+
+</p>
+
+<p>
+
+Multiple notions of this article reminded me on those concepts. It was never mentioned except in the descriptions of the citation of <a href="https://web.mit.edu/6.033/2011/wwwdocs/writing-samples/sbezek_dp1.pdf">TagFS</a> and indirectly with <a href="https://www.tagsistant.net/">Tagsistent</a>. Therefore, it gave me the impression that the wheel is re-invented here or there.
+
+</p>
+
+	  <header><h2 class="section-title">Retrieval Process</h2></header>
+
+<p>
+
+When using a system like RelFS, one of the biggest benefits would be a smooth file retrieval process. Having the advantage of multi-classification, the user doesn't need to remember storage paths. Instead, she would be able to retrieve information by filtering using tags.
+
+</p>
+
+<blockquote>If the proposed file system only supported simple tags, then tag
+queries are baked into the API. But with complex and custom tags, how
+do we express queries regarding files, field values, and references?
+It is likely that the full power of the relational database model is
+required to express useful queries.</blockquote>
+
+<p>
+
+I, too, agree to this statement. If there are only tags and no storage paths, I'd need a sophisticated search functionality. At least when navigation using <a href="//Karl-Voit.at/demo-filetags-mk-tagtrees">my TagTrees</a> is not an additional retrieval option.
+
+</p>
+
+<p>
+
+From my experience with many different levels of computer users, I don't think that using <a href="https://en.wikipedia.org/wiki/SQL">SQL</a> would be acceptable to the large majority of people. And what use is a nice tag-based system when retrieval tasks require advanced technological skills?
+
+</p>
+
+	  <header><h2 class="section-title">Containers</h2></header>
+
+<p>
+
+The article discusses the obvious requirement of handling a set of files as one entity. Nayuki introduces the concept of containers or bundles where selected files can be handled accordingly.
+
+</p>
+
+<p>
+
+From my point of view, those containers also needs to be able to be nested in order to be of value. For example, when you choose to have a fine granularity (a document container that consists of multiple sub-files including image files) and need to transfer multiple of those documents containers as one entity, forming another container. This aspect of nested containers was not mentioned directly.
+
+</p>
+
+<p>
+
+Anyhow, I could not think of any property of those containers they do not share with classic directories. You still would require to have some way of expressing "paths", pointing to those different levels of nesting. However, to get rid of those paths or directories was part of the motivation in the first place. This rather obvious contradiction is also not mentioned in the article.
+
+</p>
+
+	  <header><h2 class="section-title">Other Open Questions</h2></header>
+
+<p>
+
+In general, the section on open questions lists some still unsolved issues with this concept.
+
+</p>
+
+<p>
+
+To be honest, I did not understand the part on cyclic references. I did not get the issue and I was more than irritated by the proposed solution.
+
+</p>
+
+<p>
+
+A good hash algorithm is a crucial part of the whole concept. Potential issues are mentioned at multiple spots. A very bold statement is:
+
+</p>
+
+<blockquote>256 bits should be more than enough space to prevent hash
+collisions for all of human history going forward.</blockquote>
+
+<p>
+
+Considering the level of granularity that was already mentioned ("each single temperature measurement is a file") and taking into account that a very large number of files get shared and referenced on the internet, this is a necessary thing to have. I'm not good with estimations on large numbers. <a href="https://en.wikipedia.org/wiki/SHA-2#Comparison_of_SHA_functions">This section on Wikipedia</a> claims that SHA-256 has a "Security (in bits) against collision attacks" of 128. This is two to the power of 128. According to <a href="https://crypto.stackexchange.com/questions/47809/why-havent-any-sha-256-collisions-been-found-yet">this discussion</a> or <a href="https://stackoverflow.com/questions/4014090/is-it-safe-to-ignore-the-possibility-of-sha-collisions-in-practice">that discussion</a>, the likelihood of collisions for SHA-256 is more or less non-existent. To be precise, we have to assume that the SHA-256 hash algorithm has no flaw that can be use to attack by a malicious person provoking collisions. For situations without malicious math-geniuses finding future flaws, those hash-sums are safe. This better be true because:
+
+</p>
+
+<blockquote>In order to not deal with all this messiness of changing
+algorithms, the best hope is to choose a hash algorithm that will
+never be broken in the future.</blockquote>
+
+	  <header><h2 class="section-title">Being the Party Pooper</h2></header>
+
+<p>
+
+After all this criticism, please remember what I wrote before: For most parts of the article, I do have the very same or similar opinion compared to Nayuki. It's a very good article that reflects major pain points of "modern" computer system hardly anybody seems to recognize.
+
+</p>
+
+<p>
+
+I just do not think that a realization of this concept will result in something that is working in practice, providing a substantial progress for the average user.
+
+</p>
+
+<p>
+
+In summary, I don't think that a concept like RelFS will ever hit the average desktop in our life-time. Too many clever concepts of tag-based file systems never made it beyond research paper level. I can provide even more papers than the RelFS article lists in the references.
+
+</p>
+
+	  <header><h2 class="section-title">My Approach</h2></header>
+
+<p>
+
+I already <a href="//Karl-Voit.at/2019/10/05/innovation">blogged about the opinion that our software ecosystems are more or less frozen and real innovation happens in hardware only</a>. <a href="//Karl-Voit.at/2017/02/10/evolution-of-systems">Real innovation</a> is far from having a realistic chance from my point of view. Backward-compatibility as well as "it's good enough" provide some kind of lock-in effect for our computer systems. The average computer user does not even use <code>Ctrl-C</code> and <code>Ctrl-V</code> to access the clipboard [Lane 2005: Hidden costs of graphical user interfaces]. Therefore, we also have a severe issue with computer literacy. Not the best situation to discuss improvements on conceptual level when we do not even take advantage of the most basic possibilities to maximize efficiency we do have nowadays.
+
+</p>
+
+<p>
+
+My personal approach is to mitigate the downsides of current systems instead of proposing a green-field concept without chances of making it to the desktop.
+
+</p>
+
+<p>
+
+Read about and try out the tools I've developed myself using multi-classification. I've contributed to the <a href="//Karl-Voit.at/tags/pim">Personal Information Management (PIM)</a> research field as well (a bit) with respect to navigation (in contrast to search) and also provided some ideas based on tag-based navigation.
+
+</p>
+<ul>
+<li><a href="https://karl-voit.at/tagstore/">tagstore</a>, a research
+prototype software to study tagging behavior in various
+configurations</li>
+<li><a href="https://karl-voit.at/tagstore/en/papers.shtml">My PhD
+thesis and some papers</a>: The first four chapters of the PhD thesis
+are written in a way so that are well suited for the average reader and
+introduce to relevant parts of the research field of <a
+href="//Karl-Voit.at/tags/pim">Personal Information Management
+(PIM)</a>.</li>
+</ul>
+
+<p>
+
+Non-academic contributions from the lessons learned from my research activities:
+
+</p>
+<ul>
+<li><a
+href="//Karl-Voit.at/2020/01/25/avoid-complex-folder-hierarchies">Motivation
+blog article on not using complex hierarchies</a></li>
+<li>I also provide some tools to mitigate the current situation with
+strict hierarchies and made some <a
+href="id:2020-03-18-demo-filetags-intro">small set of demo videos for
+the most important features</a>. They also provide tagging possibilities
+as well as deriving TagTrees for navigation.</li>
+<li>Here is a <a
+href="//Karl-Voit.at/managing-digital-photographs">longer article
+on this set of tools</a>.</li>
+<li>Bonus/related: <a
+href="//Karl-Voit.at/2019/11/26/Tagging-Files-With-Windows-10">I've
+analyzed the built-in tagging feature of Windows</a> (10).</li>
+</ul>
+
+<p>
+
+If you would like to take part of the discussion, please leave a comment below.
+
+</p>
+
+
+  </article>
+	  <aside class="published-on">
+	    Published on <time datetime="2020-05-19T19:44+01:00">2020-05-19T19:44</time>
+	  </aside>
+
+   <p class="email-comment">
+      <a href="mailto:publicvoit-comment@Karl-Voit.at?subject=2020-05-18-RelFS%20comment:%20&body=Please%20do%20not%20remove%20'2020-05-18-RelFS%20comment:'%20in%20subject%20and%20please%20tell%20me%20whether%20or%20not%20it%20is%20OK%20to%20add%20your%20comment%20and%2For%20your%20name%20and%2For%20your%20email%20address%20to%20the%20blog%20entry!">Comment via email</a> (persistent) or via <a href="//disqus.com">Disqus</a> (ephemeral) comments below:
+   </p>
+
+    <div id="disqus_thread"></div>
+    <div id="disqus_loader" style="text-align: center">
+      <!-- stolen from http://blog.yjl.im/2012/04/let-your-readers-decide-when-to-load.html -->
+      <button onclick="load_disqus()">Load Disqus Comments</button>
+      <script>
+        function load_disqus()
+        {
+          var dsq = document.createElement('script');
+          dsq.type = 'text/javascript';
+          dsq.async = true;
+          dsq.src = "//publicvoit.disqus.com/embed.js";
+          var disqus_identifier = '2020-05-18-RelFS';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          var ldr = document.getElementById('disqus_loader');
+          ldr.parentNode.removeChild(ldr);
+        }
+      </script>
+    </div>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">Disqus comments.</a></noscript>
+
+    <footer>
+      <p><i><a href="//Karl-Voit.at/about">public voit</a></i> is authored in <a href="//orgmode.org">Org mode</a> and generated by <a href="https://github.com/novoid/lazyblorg">lazyblorg</a>
+
+	 	&nbsp;&bull;&nbsp; <a rel="me" href="https://graz.social/@publicvoit">🐘</a>
+
+	 	&nbsp;&bull;&nbsp; <a href="//validator.w3.org/check/referer">HTML5</a>
+
+	 	&nbsp;&bull;&nbsp; <a href="//jigsaw.w3.org/css-validator/">CSS3</a>
+
+	 	&nbsp;&bull;&nbsp; <a href="https://web.archive.org/web/*/Karl-Voit.at/2020/05/19/RelFS/">Archive</a>
+
+	 	&nbsp;&bull;&nbsp; <a href="https://jeffhuang.com/designed_to_last/">Designed to Last</a>
+      </p>
+    </footer>
+
+  </body>
+</html>
