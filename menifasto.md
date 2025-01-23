@@ -2,15 +2,15 @@
 
 Trees are *everywhere* in I.T. and in Knowledge Representation.
 There's no avoiding them. And when your main hammer is an RDMS,
-trees are difficult to nail.
+trees are difficult to nail, and difficult to make more elaborate.
 
-But RelFS (and its author) have some interesting ideas. And there
-is also the idea of muiltitrees to help organise complex trees.
-So, we have
+But there are some interesting ideas "out there". One is `RelFS`,
+and its author has some interesting ideas. Another is `muiltitrees`,
+to help organise complex trees. 
 
 So let's say: `Tree + RelFS + Multitree ~= Trellis`
 
-... _(and a trellis is what a multitree can look like)_
+... _(and interestingly, a trellis is what a multitree can resemble)_
 
 # IRL
 
@@ -18,7 +18,9 @@ Trees form the basis of filesystems, because nothing better
 has gained world domination quite like simple trees have.
 (Hard links and soft links are just window dressing.)
 
-Tags might seem like part of a cure. Perhaps you're thinking
+Top-down. Directed. Single-rooted. 
+
+__**Tags**__ might seem like part of a cure. Perhaps you're thinking
 of a vast flattened pool of content, with faceted tags for
 narrowing searches down. But that doesn't really work either.
 Not well, anyways.
@@ -36,7 +38,7 @@ So, any particular content node can have
 - multiple parents
 - multiple incoming facet links
 - and don't forget arbitrarily large amounts of metadata
-- and multiple versiona and multiple (re)presentation formats 
+- and multiple versions and multiple (re)presentation formats 
 
 This makes it much more interesting than a simple top-down tree.
 
