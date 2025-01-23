@@ -48,7 +48,8 @@ This makes it all much more interesting than a simple top-down tree.
 # Foods for Thought
 
 - [RelFS summary at GH](https://github.com/nayuki/Relational-File-System)
-- [RelFS rationale](https://www.nayuki.io/page/designing-better-file-organization-around-tags-not-hierarchies) [local](https://github.com/fbaube/trellous/local/Designing%20better%20file%20orgzn%20around%20tags%20not%20hierarchies.xhtml)
-- [File Systems: The Original Hypermedia](https://jon.work/og/#1) [local](https://github.com/fbaube/trellous/local/File%20Systems%20The%20Original%20Hypermedia.html)
-- [Multitrees: Enriching and Reusing Hierarchical Structure](https://adrenaline.ucsd.edu/kirsh/Articles/In_Process/MultiTrees.pdf) [local](https://github.com/fbaube/trellous/local/MultiTrees.pdf)
+- [RelFS rationale](https://www.nayuki.io/page/designing-better-file-organization-around-tags-not-hierarchies) 
+- [File Systems: The Original Hypermedia](https://jon.work/og/#1) 
+- [Multitrees: Enriching and Reusing Hierarchical Structure](https://adrenaline.ucsd.edu/kirsh/Articles/In_Process/MultiTrees.pdf) 
+- _(local copies are in subdirectory_ `local/`)
 
