@@ -21,31 +21,34 @@ has gained world domination quite like simple trees have.
 Top-down. Directed. Single-rooted. 
 
 ***Tags*** might seem like part of a cure. Perhaps you're thinking
-of a vast flattened pool of content, with faceted tags for
-narrowing searches down. But that doesn't really work either.
+of a vast, flat (i.e. unhierarchical) pool of content, with faceted
+tags for narrowing searches down. But that doesn't really work either.
 Not well, anyways.
 
-Furthermore tags themselves need to be hierarchical, so that's
-a complicating factor.							
+Furthermore, to be useful, tags themselves should be hierarchical,
+so that's a complicating factor.	
 
 And when you're talking content reuse (for example), it's not
 just munltiple child nodes that are important, it's multiple
-parent nodes too. There's **Contents** and but OTOH there's
-**Contexts** too.
+parent nodes too. From the viewpoint of a node, one speaks of
+***Contents*** but also of ***Contexts***.
 
 So, any particular content node can have
 - multiple children
 - multiple parents
 - multiple incoming facet links
-- and don't forget arbitrarily large amounts of metadata
-- and multiple versions and multiple (re)presentation formats 
+- and let's not forget
+  - arbitrarily large amounts of metadata
+  - multiple versions
+  - multiple formats of (re)presentation
+  - concurrent modification 
 
-This makes it much more interesting than a simple top-down tree.
+This makes it all much more interesting than a simple top-down tree.
 
 # Foods for Thought
 
 - [RelFS summary at GH](https://github.com/nayuki/Relational-File-System)
 - [RelFS rationale](https://www.nayuki.io/page/designing-better-file-organization-around-tags-not-hierarchies) [local]()
-- [File Systems: The Original Hypermedia)(https://jon.work/og/#1) [local]()
-- [Multitrees: Enriching and Reusing Hierarchical Structure](https://adrenaline.ucsd.edu/kirsh/Articles/In_Process/MultiTrees.pdf)
+- [File Systems: The Original Hypermedia](https://jon.work/og/#1) [local]()
+- [Multitrees: Enriching and Reusing Hierarchical Structure](https://adrenaline.ucsd.edu/kirsh/Articles/In_Process/MultiTrees.pdf) [local]()
 
