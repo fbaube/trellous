@@ -114,7 +114,7 @@ tree, and not planar in general, it has remarkably large easily
 identifiable and semantically coherent subsets that are trees,
 and hence are planar, and amenable to easy layout.
 
-[fisheye](img/fisheye-view.png)
+![fisheye](img/fisheye-view.png)
 
 ***Tags*** might seem like part of a cure. Perhaps you're thinking
 of a vast, flat (i.e. unhierarchical) pool of content, with faceted
