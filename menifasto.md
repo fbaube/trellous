@@ -7,21 +7,23 @@ a tree is a difficult thing to nail, and resistant to ornamentation.
 But there are some interesting ideas "out there". One is `RelFS`,
 and another is `muiltitrees`.
 
-So let's say: `Tree + RelFS + Multitree ~= Trellis`
+So let's say: `Tree + RelFS + Multitree => Trellis => _trellous_`
 
-... _(and interestingly enough, a trellis is what a multitree
+_(... and interestingly enough, a trellis is what a multitree
 can resemble)_
 
 # About Multitrees 
 
-Trees form the basis of filesystems, and no other data structure
-has achieved the same univeral acceptance. (Note that hard links
-and soft links are just window dressing.)
+Trees form the basis of filesystems - and XML too - and no similar 
+data structure has achieved the same univeral everyday acceptance.
+(Note that hard links and soft links are just window dressing.)
 
-They are directed acyclic graphs (DAGs), with a single root, and
-directed "downward" parent-to-children.
+A tree is a directed acyclic graph (DAG), with a single root,
+and directed "downward" parent-to-children.
 
-"Regular" trees can be rendered quite easily, like so:
+An advantage of their simplicity is that a "regular" tree can
+be rendered quite easily, like so:
+
 ```
 ~/trellous >> tree
 .
@@ -33,7 +35,8 @@ directed "downward" parent-to-children.
 ├── menifasto.md
 ```
 
-A multitree is a variation on this and has certain advantages.
+A **Multitree** is a variation on this that has certain
+additional features and advantages.
 
 Furthermore, when you want to represent multiple references
 to some item, or (to be more specific) content reuse (the
