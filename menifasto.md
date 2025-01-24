@@ -80,20 +80,20 @@ whetehr the item is a foldirectory or a document:
 
 ```
 +----------+----------+-----------------+
-|          |          | (  min / max  ) |
-| Con-     | Longish  | ( render type ) |
+|(bookmarx)|          | (  min / max  ) |
+|  Con-    | Longish  | ( render type ) |
 | texts    | Listing  | ( media cntls ) |
-|          | of Peer  |                 |
+| (few)    | of Peer  |                 |
 +----------+ Items    |                 |
 |          | (w 1+    |                 |
 |  Tag     | item(s)  |    CONTENTS     |
 |  Stuff,  | in focus)|                 |
-|  A.I.    |          |                 |
-|  I/F     +----------+                 |
-|          | Shortish |                 |
-|  popup   | Descr.   |                 |
-| browser, +----------+                 |
-| comments | Metadata |                 |
+|  A.I.    |          |    wysiwyg      |
+|  I/F     +----------+    markup       |
+|          | Shortish |    image        |
+|  popup   | Descr.   |    reviews      |
+| browser, +----------+    database     |
+| comments | Metadata |    dataframe(s) |
 +----------+ Fields   |                 |
 | Messages |(workflow)|                 |
 |  and/or  |(versions)|                 |
@@ -101,5 +101,11 @@ whetehr the item is a foldirectory or a document:
 +----------+----------+-----------------+
 
 ```
+Note that when a DB or DF is in focus,
+the right-side pane becomes a browser
+for structured data.
 
+Note that this UI model might also work for
+productivity (GTD / task mgmt / reminders).
 
+-end-
