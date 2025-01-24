@@ -41,7 +41,9 @@ So, any particular content node can have
   - arbitrarily large amounts of metadata
   - multiple versions
   - multiple formats of (re)presentation
-  - concurrent modification 
+  - maybe multiple languages 
+  - concurrent modification
+  - workflow status
 
 This makes it all much more interesting than a simple top-down tree.
 
@@ -77,10 +79,27 @@ and when tags are wanted, a 2-by-2 grid might work,
 whetehr the item is a foldirectory or a document:
 
 ```
-tags     contexts
-     item
-multi    contents
++----------+----------+-----------------+
+|          |          | (  min / max  ) |
+| Con-     | Longish  | ( render type ) |
+| texts    | Listing  | ( media cntls ) |
+|          | of Peer  |                 |
++----------+ Items    |                 |
+|          | (w 1+    |                 |
+|  Tag     | item(s)  |    CONTENTS     |
+|  Stuff,  | in focus)|                 |
+|  A.I.    |          |                 |
+|  I/F     +----------+                 |
+|          | Shortish |                 |
+|  popup   | Descr.   |                 |
+| browser, +----------+                 |
+| comments | Metadata |                 |
++----------+ Fields   |                 |
+| Messages |(workflow)|                 |
+|  and/or  |(versions)|                 |
+|  History |(language)|                 |
++----------+----------+-----------------+
+
 ```
 
-Multi could be a previoew, or metadata, or a review
-panel, or whatever, changing dynamically. 
+
