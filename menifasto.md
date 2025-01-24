@@ -124,12 +124,12 @@ above existing (or newly added) disjoint complete subtrees.
 
 Any DAG satisfying these conditions is called a multitree.
 
-(Aside: In this light it is interesting to note that genealogies,
-though often called “family trees”, are in fact not trees at all.
-Except for intermarriage, which would introduce diamonds, they
-are multitrees. The property just derived makes sense of the
-fact that a given individual has both a tree of ancestors and
-a tree of descendants within the structure.)
+(_Aside:_ It is interesting to note that genealogies, though
+often called “family trees”, are in fact not trees at all.
+Except for intermarriage, which would introduce diamonds,
+they are multitrees. The property just derived makes sense
+of the fact that a given individual has both a tree of
+ancestors and a tree of descendants within the structure.)
 
 For information representation, our Proposition means that
 looking down from any node in the structure one sees a tree
